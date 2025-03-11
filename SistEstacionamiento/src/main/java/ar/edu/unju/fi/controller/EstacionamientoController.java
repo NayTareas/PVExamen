@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.edu.unju.fi.model.Automovil;
 import ar.edu.unju.fi.model.BoxDeEstacionamiento;
+import ar.edu.unju.fi.model.UsoBox;
 import ar.edu.unju.fi.service.IAutomovilService;
 import ar.edu.unju.fi.service.IBoxEstacionamientoService;
 import ar.edu.unju.fi.service.IUsoBoxService;
@@ -50,26 +53,26 @@ public class EstacionamientoController {
   @GetMapping("/nuevo-auto")
   public String nuevoAutomovil(Model model) {
     model.addAttribute("automovil", new Automovil());
-    return "nuevo-auto";
+    return "formularioAutomovil";
   }
 
   @PostMapping("/guardar-auto")
   public String guardarAutomovil(@ModelAttribute Automovil automovil) {
     automovilService.guardarAutomovil(automovil);
     ;
-    return "redirect:/";
+    return "redirect:/listar-autos";
   }
 
   @GetMapping("/nuevo-box")
   public String nuevoBox(Model model) {
     model.addAttribute("box", new BoxDeEstacionamiento());
-    return "nuevo-box";
+    return "formularioBox";
   }
 
   @GetMapping("/editar-auto/{id}")
   public String editarBox(Model model, @PathVariable(name = "id") Long id) {
     model.addAttribute("automovil", automovilService.obtenerAutomovilPorId(id));
-    return "nuevo-auto";
+    return "formularioAutomovil";
   }
 
   @GetMapping("/eliminar-auto/{id}")
@@ -88,5 +91,12 @@ public class EstacionamientoController {
   public String listarAutos(Model model) {
     model.addAttribute("autos", automovilService.obtenerAutomoviles());
     return "listar-autos";
+  }
+
+  @GetMapping("/lista-box")
+  public String listarUsoBoxes(Model model) {
+    List<UsoBox> usoBoxes = usoBoxService.obternerBoxes();
+    model.addAttribute("usoBoxes", usoBoxes);
+    return "lista-box";
   }
 }

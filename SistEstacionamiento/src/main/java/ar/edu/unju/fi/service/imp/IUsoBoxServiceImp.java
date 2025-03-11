@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,11 @@ public class IUsoBoxServiceImp implements IUsoBoxService {
       costo = horas * 300;
     }
     return costo;
+  }
+
+  @Override
+  public List<UsoBox> obternerBoxes() {
+    return usoBoxRepo.findAll();
   }
 
 }
