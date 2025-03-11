@@ -59,7 +59,6 @@ public class EstacionamientoController {
   @PostMapping("/guardar-auto")
   public String guardarAutomovil(@ModelAttribute Automovil automovil) {
     automovilService.guardarAutomovil(automovil);
-    ;
     return "redirect:/listar-autos";
   }
 

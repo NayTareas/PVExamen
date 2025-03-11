@@ -1,7 +1,5 @@
 package ar.edu.unju.fi.model;
 
-import java.time.LocalTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +19,6 @@ public class UsoBox {
   private Automovil automovil;
   @ManyToOne
   private BoxDeEstacionamiento box;
-  private LocalTime HoraInicio;
   private int cantidadHoras;
   private double costoPagado;
 }
