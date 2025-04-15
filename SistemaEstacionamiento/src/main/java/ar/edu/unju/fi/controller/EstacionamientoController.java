@@ -98,5 +98,15 @@ public class EstacionamientoController {
     model.addAttribute("usoBoxes", usoBoxes);
     return "lista-box";
   }
+  @GetMapping("/lista-boxescreados")	
+  public String listarBoxesCreados(Model model) {
+	    List<BoxDeEstacionamiento> boxes = boxestacionamientoService.mostrarBoxEstacionamiento();
+	    model.addAttribute("boxes", boxes);
+	return "listar-boxescreados";
+  }
+  
 }
+
+
+
 
