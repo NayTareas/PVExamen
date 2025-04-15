@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Box de Estacionamiento</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div th:insert="~{/layouts/nav :: nav}"></div>
+
+  <div class="container mt-4">
+    <h2>Formulario de Box de Estacionamiento</h2>
+
+    <!-- Formulario de Thymeleaf -->
+    <form action="#" th:action="@{/guardar-box}" th:object="${boxDeEstacionamiento}" method="post">
+      <div class="mb-3">
+        <label>Zona:</label>
+        <select name="zona" class="form-control" required>
+          <option value="1">Zona 1 ($500/h)</option>
+          <option value="2">Zona 2 ($300/h)</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>Disponibilidad:</label>
+        <select name="disponibilidad" class="form-control" required>
+          <option value="true">Libre</option>
+          <option value="false">Ocupado</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

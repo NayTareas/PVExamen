@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Uso de Boxes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div th:insert="~{/layouts/nav :: nav}"></div>
+  <div class="container mt-4">
+    <h2>Lista de Uso de Boxes</h2>
+    <a href="/nuevo-box" class="btn btn-primary mb-3">Agregar Box</a>
+    <!-- Tabla -->
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Automóvil</th>
+          <th>Box</th>
+          <th>Cantidad de Horas</th>
+          <th>Costo Pagado</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="usoBox : ${usoBoxes}">
+          <td th:text="${usoBox.id}">ID</td>
+          <td th:text="${usoBox.automovil.marca + ' ' + usoBox.automovil.modelo}">Automóvil</td>
+          <td th:text="${usoBox.box.zona}">Box</td>
+          <td th:text="${usoBox.cantidadHoras}">Cantidad de Horas</td>
+          <td th:text="${usoBox.costoPagado}">Costo Pagado</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
