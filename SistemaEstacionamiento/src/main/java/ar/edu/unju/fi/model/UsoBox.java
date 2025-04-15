@@ -25,7 +25,6 @@ public class UsoBox {
   public Automovil getAutomovil() {
       return automovil;
   }
-
   public void setAutomovil(Automovil automovil) {
       this.automovil = automovil;
   }
@@ -41,7 +40,6 @@ public class UsoBox {
   public int getCantidadHoras() {
       return cantidadHoras;
   }
-
   public void setCantidadHoras(int cantidadHoras) {
       this.cantidadHoras = cantidadHoras;
   }
@@ -49,8 +47,13 @@ public class UsoBox {
   public double getCostoPagado() {
       return costoPagado;
   }
-
   public void setCostoPagado(double costoPagado) {
       this.costoPagado = costoPagado;
+  }
+  public Long getId() {
+	  return id;
+  }
+  public void setId(Long id) {
+	  this.id = id;
   }
 }
